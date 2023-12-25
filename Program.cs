@@ -1,9 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using RunnersApi.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddDbContext<ActivityContext>(opt => opt.UseInMemoryDatabase("RunnersApi"));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
